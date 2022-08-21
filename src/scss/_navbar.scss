@@ -1,0 +1,114 @@
+.nav-sm {
+	position: relative;
+	height: 2.375rem;
+	& .nav-logo {
+		height: 2.375rem;
+		line-height: 2.375rem;
+		float: left;
+	}
+	& .nav-menu {
+		height: 2.375rem;
+		& *:not(.nav-component) > *:not([class*="text"]) {
+			line-height: 2.375rem;
+		}		
+		& .nav-component {
+			height: 2.375rem;
+		}
+	}	
+	& .nav-button-sm {
+		position: absolute;
+		display: none;
+		right: 0;
+	}	
+}
+.nav-lg {
+	position: relative;
+	height: 2.75rem;
+	& .nav-logo {
+		height: 2.75rem;
+		line-height: 2.75rem;
+		float: left;
+	}
+	& .nav-menu {
+		height: 2.75rem;
+		& *:not(.nav-component) > *:not([class*="text"]) {
+			line-height: 2.75rem;
+		}	
+		& .nav-component {
+			height: 2.75rem;
+		}
+	}
+	& .nav-button-lg {
+		position: absolute;
+		display: none;
+		right: 0;
+	}	
+}
+.nav-menu {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	@include layer-initial();
+  & > * {
+		float: left;	
+		margin-left: 1.25rem;
+		& > .nav-menu {
+			position: absolute;
+			display: none;
+			@include layer-3();
+		}
+	}
+	& a {
+		text-decoration: none;
+		background-color: inherit;
+		color: inherit;		
+	}
+}
+.nav-menu > .nav-component {
+	display: flex;
+	align-items: center;
+}
+.nav-sm.nav-reverse {
+	& .nav-logo {
+		float: right;
+	}
+	& .nav-button-sm {
+		left: 0;
+	}
+}
+.nav-lg.nav-reverse {
+	& .nav-logo {
+		float: right;
+	}
+	& .nav-button-lg {
+		left: 0;
+	}
+}
+
+@media screen and (max-width: $settings_bp_1_under) {
+	.mq-1 {
+		@include navbar-mq-styles();
+	}
+}
+@media screen and (max-width: $settings_bp_2_under) {
+	.mq-2 {
+		@include navbar-mq-styles();
+	}
+}
+@media screen and (max-width: $settings_bp_3_under) {
+	.mq-3 {
+		@include navbar-mq-styles();
+	}
+}
+@media screen and (max-width: $settings_bp_4_under) {
+	.mq-4 {
+		@include navbar-mq-styles();
+	}
+}
+@media screen and (max-width: $settings_bp_5_under) {
+	.mq-5 {
+		@include navbar-mq-styles();
+	}
+}
+

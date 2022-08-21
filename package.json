@@ -1,0 +1,63 @@
+{
+  "name": "asyncdesign-webui",
+  "description": "A mobile-first CSS framework that supports responsive mobile first and fixed desktop layouts.",
+  "version": "10.2.0",
+  "author": "Levi Keogh",
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "sass",
+    "responsive",
+    "mobile-first",
+    "fixed",
+    "layout",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "homepage": "https://asyncdesign.github.io/webui",
+  "sass": "src/scss/webui-components-all.scss",
+  "main": "src/js/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asyncdesign/webui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asyncdesign/webui/issues"
+  },
+  "devDependencies": {
+    "compression-webpack-plugin": "^9.2.0",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.0",
+    "remove-files-webpack-plugin": "^1.5.0",
+    "sass": "^1.49.11",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-concat-files-plugin": "^0.5.2",
+    "webpack-messages": "^2.0.4"
+  },
+  "files": [
+    "dist",
+    "images",
+    "src",
+    "vendor",
+    "DEMO-Accordions-Menus-Tabs.html",
+    "DEMO-Controls.html",
+    "DEMO-Designs.html",
+    "DEMO-Forms-Tooltips-Modals-Alerts.html",
+    "DEMO-Grids-Layouts.html",
+    "DEMO-Positioning.html",
+    "DEMO-Shapes.html",
+    "DEMO-Transitions-Effects.html",
+    "DEMO-Typography-Colour-Buttons.html",
+    "DEMO-Validation.html",
+    "site.css"
+  ]
+}

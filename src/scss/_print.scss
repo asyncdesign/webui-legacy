@@ -1,0 +1,38 @@
+
+@media print {
+    a {
+      text-decoration: underline;
+    }
+    h1, h2, h3 {
+      page-break-after: avoid;
+    }
+    p a[href^="http://"]::after {
+      content: " (" attr(href) ")";
+    }
+    img,
+    pre,
+    code,
+    blockquote {
+      border: 0.078rem solid $theme_muted;
+      page-break-inside: avoid;
+    }
+    meter,
+    progress {
+      page-break-inside: avoid;
+    }
+    button,
+    input[type=button], 
+    input[type=submit],
+    *[class*="button-link"],
+    *[class*="view-button-link"],
+    *[class*="menu-button-link"] {
+      display: none;
+    }
+    img {
+        max-width: 37.5rem;
+    }
+    *[class*="menu-"], *[class*="dropdown-"] {
+      display: none;
+    }
+
+}
