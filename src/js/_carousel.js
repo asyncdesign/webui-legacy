@@ -71,7 +71,7 @@
 				}
 				if (callback) callback();
 			},
-			resetCarousel = function(carousel, itemCount, isResizeEvent) {
+			resetCarousel = function(carousel, itemCount) {
 
 				if (autoScale) {
 
@@ -240,8 +240,8 @@
 					if (transitionType === "crossfade") {
 						var items = carouselHolder.find(".carousel-item");
 
-						items.eq(index).fadeIn(0, 0, function() {                  
-								items.eq(index).siblings(".carousel-item").fadeOut(0, 0, function() {
+						items.eq(current - 1).fadeIn(0, 0, function() {                  
+								items.eq(current - 1).siblings(".carousel-item").fadeOut(0, 0, function() {
 
 										transitionCompleted = true;
 										carousel.trigger("ui.carousel.change.after", [ current ]);
@@ -314,7 +314,7 @@
 					win.addEventListener("resize", carouselResize);
 
 					function carouselResize() {
-						resetCarousel(carousel, carouselItemCount, true);
+						resetCarousel(carousel, carouselItemCount);
 					};		
 			}
 

@@ -32,6 +32,11 @@
 	webui.showAlert = function(message, type, auto, icon, close) {
 		if (arguments.length > 1) {
 
+			var autoHideAlert = auto === null ? auto = autoHide : auto;
+			var showAlertIcon = icon === null ? icon = showIcon : icon;
+			var showAlertClose = close === null ? close = showClose : close;
+
+
 			var alertContainer = !webui(".alert-container").length ? 
 									webui("<div></div>").addClass("alert-container").addClass("alert-" + position).appendTo("body") : 
 									webui(".alert-container").addClass("alert-" + position);
@@ -81,14 +86,14 @@
 				alertItemInner.addClass("rounded-md");
 			}
 			if (showHeader && !inline) {
-				if (icon || close) {
+				if (showAlertIcon || showAlertClose) {
 					var alertItemHeader = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
 					var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
 					var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
-					if (icon) {
+					if (showAlertIcon) {
 						webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
 					}
-					if (close) {
+					if (showAlertClose) {
 						webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight)
 						.click(function() {
 							ui.hideAlert(alertItemInner, false);
@@ -98,17 +103,17 @@
 			}
 			var alertItemBody = webui("<div></div>").addClass("panel flex-items-center").appendTo(alertItemInner);
 			if (showHeader && inline) {
-				if (icon && close) {
+				if (showAlertIcon && showAlertClose) {
 					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
 					webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
 					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
 					.click(function() {
 						ui.hideAlert(alertItemInner, false);
 					});
-				} else if (icon) {
+				} else if (showAlertIcon) {
 					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
 					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
-				} else if (close) {
+				} else if (showAlertClose) {
 					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
 					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
 					.click(function() {
@@ -120,19 +125,13 @@
 			} else {
 				webui("<div></div>").appendTo(alertItemBody).html(message);
 			}
-			if (auto != null) {
-				if (auto) {
-					setTimeout(function() {
-						ui.hideAlert(alertItemInner, true);
-					}, duration);
-				}
-			} else {
-				if (autoHide) {
-					setTimeout(function() {
-						ui.hideAlert(alertItemInner, true);
-					}, duration);
-				}
+
+			if (autoHideAlert) {
+				setTimeout(function() {
+					ui.hideAlert(alertItemInner, true);
+				}, duration);
 			}
+
 		}
 	};
 	webui.hideAlert = function(alert, auto) {

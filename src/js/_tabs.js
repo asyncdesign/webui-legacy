@@ -3,65 +3,138 @@
 		
 	/* PRIVATE */
 
-	var 
-		transitionDuration,
-		transitionType,
+	var TabsInstance = function(tabs, settings) {
 
-		selectTab = function (element) {
-			var tabId = element.attr("href");
-			if (!tabId) {
-				tabId = element.data("target");
+		var 
+		activeTabId = settings.activeTabId,
+		activeTabFocused = settings.activeTabFocused,
+		transitionDuration = settings.transitionDuration,
+		transitionType = settings.transitionType,
+
+		selectTab = function (tabActivator) {
+
+			var tabId = tabActivator.data("target");
+
+			if (tabId) {
+
+				var prevTabId = "#" + tabActivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
+
+				tabActivator.parents(".tabs").find(".tab-item").removeClass("selected");
+
+				tabActivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
+
+				var activeTab = tabActivator.parents(".tabs").find(tabId).first();
+				
+				if (transitionType === "fade") {
+					activeTab.show().children().fadeIn(transitionDuration);
+				}
+				else if (transitionType === "collapse") {
+					activeTab.show().children().expandVertical({ duration: transitionDuration });
+				}
+				else {
+					activeTab.show();
+				}
+
+				
+				activeTab.addClass("selected");
+
+				if (transitionType === "fade") {
+					activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+					activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+					activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
+					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+					
+					activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
+				}
+				else if (transitionType === "collapse") {
+					activeTab.siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });
+					activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });
+					activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });			
+					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });
+
+					activeTab.find(".tabs").find(".tab-item").first().show().children().expandVertical({ duration: transitionDuration });			
+				}
+				else {
+					activeTab.siblings(".tab-item").hide();			
+					activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
+					activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
+					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
+					
+					activeTab.find(".tabs").find(".tab-item").first().show();									
+				}
+				
+				tabActivator.trigger("ui.tabs.change.after", [ prevTabId, tabId ]);
 			}
-			var prevTabId = element.parents(".tabs").find(".tab-item.selected").last().attr("id");
-			var curTabId = tabId.replace("#", "");
+		},
 
-			element.parents(".tabs").find(".tab-item").removeClass("selected");
+		initializeTabEvents = function (callback) {
 
-			element.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
+			tabs.find(".tab-activator").click(function (e) {
+				e.preventDefault();
+				var activators = webui(this);
 
-			var activeTab = element.parents(".tabs").find(tabId);
-			
-			if (transitionType === "fade") {
-				activeTab.show().children().fadeIn(transitionDuration);
-			}
-			else if (transitionType === "collapse") {
-				activeTab.expandVertical(transitionDuration, "auto");
+				if (activators.length) {
+					selectTab(activators.first());
+				}
+			});
+		
+			tabs.find(".tab-activator-focus").focus(function (e) {
+				e.preventDefault();
+				var activators = webui(this);
+
+				if (activators.length) {
+					selectTab(activators.first());
+				}	
+			});
+			callback();
+		},
+
+		setActiveTab = function () {
+
+			if (activeTabId) {
+
+				var dataTarget = tabs.find("[data-target='" + activeTabId + "']").first();
+				if (dataTarget) {
+					dataTarget[0].click();
+					dataTarget.addClass("selected");
+					if (activeTabFocused) {
+						dataTarget[0].focus();
+					}
+				}
+				else {
+					var href = tabs.find("[href='" + activeTabId + "']").first();
+					if (href) {
+						href[0].click();
+						href.addClass("selected");
+						if (activeTabFocused) {
+							href[0].focus();
+						}
+					}							
+				}
 			}
 			else {
-				activeTab.show();
-			}
+				var tab = tabs.find(".tab-activator").last().siblings().last();
+				if (tab.length) {
+					tab[0].click();
+				}
+				else {
+					tab = tabs.find(".tab-activator-focus").last().siblings().last();
+					if (tab.length) {
+						tab[0].click();
+					}
+				}
+			}		
 
-			
-			activeTab.addClass("selected");
-
-			if (transitionType === "fade") {
-				activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-				activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-				activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
-				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-				
-				activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
-			}
-			else if (transitionType === "collapse") {
-				activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
-				activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-				activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
-				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-
-				activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");						
-			}
-			else {
-				activeTab.siblings(".tab-item").hide();			
-				activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
-				activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
-				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
-				
-				activeTab.find(".tabs").find(".tab-item").first().show();									
-			}
-			
-			element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
 		};
 
+
+		/* EVENTS */
+
+		initializeTabEvents(function() {
+			setActiveTab();
+		});			
+
+	};
 
 	/* PUBLIC */
 
@@ -75,71 +148,12 @@
 				transitionType: "fade"
 			}, options);
 
-			transitionDuration = settings.transitionDuration;
-			transitionType = settings.transitionType;
-
-
-			if (settings.activeTabId) {
-				var href = this.find("[href='" + settings.activeTabId + "']");
-				if (href.length) {
-					href[0].click();
-					href.addClass("selected");
-					if (settings.activeTabFocused) {
-						href[0].focus();
-					}
-				}
-				else {
-					var dataTarget = this.find("[data-target='" + settings.activeTabId + "']");
-					if (dataTarget.length) {
-						dataTarget[0].click();
-						dataTarget.addClass("selected");
-						if (settings.activeTabFocused) {
-							dataTarget[0].focus();
-						}
-					}
-					else {
-						var activeTab = this.find(settings.activeTabId);
-						if (activeTab.length) {
-							activeTab.addClass("selected");
-							activeTab[0].click();
-							if (settings.activeTabFocused) {
-								activeTab[0].focus();
-							}	
-						}							
-					}
-				}
-			}
-			else {
-				var tab = this.find(".tab-activator").last().siblings().last();
-				if (tab.length) {
-					tab[0].click();
-				}
-				else {
-					tab = this.find(".tab-activator-focus").last().siblings().last();
-					if (tab.length) {
-						tab[0].click();
-					}
-				}
-			}
+			var control = new TabsInstance(this, settings);
+	
 			return this;
-		}
+		},
+		enumerable: false
 	});
 
-	webui(".tab-activator").click(function(e) {
-		e.preventDefault();
-		var element = webui(this);
-		if (element) {
-			selectTab(element);
-		}
-	});
-
-	webui(".tab-activator-focus").focus(function(e) {
-		e.preventDefault();
-		var element = webui(this);
-		if (element) {
-			selectTab(element);
-		}
-	});
-
-}(window));
+})(window);
 		

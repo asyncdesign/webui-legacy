@@ -136,6 +136,7 @@
 				var transitionOrientation = toggleContainer.data("transition-orientation");
 				var transitionDistance = toggleContainer.data("transition-distance");
 
+				var offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer");
 				var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
 				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");
 
@@ -144,7 +145,7 @@
 
 					var toggleItemWidth = toggleItem[0].offsetWidth;
 
-					if (offCanvas && toggleBody.length) {
+					if (!offCanvasDrawer && offCanvas && toggleBody.length) {
 
 						ui(".off-canvas-left, .off-canvas-right").css("transition-duration", (transitionDuration / 1000) + "s");
 						toggleBody.css("transition-duration", (transitionDuration / 1000) + "s");
@@ -164,9 +165,9 @@
 									toggleItem.css("transform", "translate(0, 0)");
 									toggleBody.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
 								}
-							});
 
-							toggleItem.trigger("ui.toggleItem.show.after");
+								toggleItem.trigger("ui.toggleItem.show.after");
+							});						
 						} 
 						else {
 										
@@ -183,9 +184,9 @@
 								}
 
 								toggleItem.addClass("off-canvas-closed");
-							});
 
-							toggleItem.trigger("ui.toggleItem.hide.after");
+								toggleItem.trigger("ui.toggleItem.hide.after");
+							});			
 						}
 					}
 					else if (offCanvas) {
@@ -205,9 +206,9 @@
 								else {
 									toggleItem.css("transform", "translate(0, 0)");
 								}
-							});
 
-							toggleItem.trigger("ui.toggleItem.show.after");
+								toggleItem.trigger("ui.toggleItem.show.after");
+							});				
 						} 
 						else {
 										
@@ -222,9 +223,9 @@
 								}
 
 								toggleItem.addClass("off-canvas-closed");
-							});
 
-							toggleItem.trigger("ui.toggleItem.hide.after");
+								toggleItem.trigger("ui.toggleItem.hide.after");
+							});						
 						}
 					}
 					else {
@@ -502,7 +503,7 @@
 			return new fn.o(selector);
 		},
 
-		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/,
+		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:\"\']{1,255})$/,
 		domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 		fn = webui.fn = webui.prototype = {
@@ -1679,7 +1680,7 @@
 		for (var i = 0; i < this.length; i++) {
 			el = this[i];
 
-			var zIndex = parseInt(getComputedStyle(el));
+			var zIndex = parseInt(getComputedStyle(el).getPropertyValue("z-index"));
 
 			if (isNaN(zIndex)) { 
 				zIndex = 0; 
@@ -1872,7 +1873,7 @@
 	};
 
 	webui.getValueFromCssSize = function(size) {
-		var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9]+/gi, "")) : !isNaN(size) ? size : 0;
+		var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9.]+/gi, "")) : !isNaN(size) ? size : 0;
 		return parseFloat(sizeValue);
 	};
 
@@ -2054,7 +2055,7 @@
 				default: max = 0; break;
 			}
 		}
-		if (mediaWidth > min && mediaWidth <= max || mediaWidth > min && max == 0) {
+		if (mediaWidth >= min && mediaWidth <= max || mediaWidth >= min && max == 0) {
 			return true;
 		}
 		return false;
@@ -2136,7 +2137,6 @@
 	};
 
 	webui.sum = function () {
-		var i;
 		var n = arguments.length;
 		var total = 0;
 		for (var i = 0; i < n; i++) {
@@ -2284,13 +2284,6 @@
 			}
 		}
 		return arguments[0];
-	};
-
-	webui.noConflict = function () {
-		win.ui = _ui;
-		win.webui = _webui;
-
-		return webui;
 	};
 
 

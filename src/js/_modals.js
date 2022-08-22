@@ -46,17 +46,25 @@
 		hideModal = function () {
 	
 			if (modal) {
-	
-				webui("body").css("padding-right", "");
-				webui("body").css("overflow", "");
-	
+		
 				modal.trigger("ui.modal.hide.before");
 				
 				if (transitionDuration) {
-					modal.fadeOut(transitionDuration).trigger("ui.modal.hide.after");					
+					modal.fadeOut(transitionDuration, 0, function() {
+
+						webui("body").css("padding-right", "");
+						webui("body").css("overflow", "");
+		
+						modal.trigger("ui.modal.hide.after");
+					});				
 				}
 				else {
-					modal.hide().trigger("ui.modal.hide.after");
+					modal.hide();
+
+					webui("body").css("padding-right", "");
+					webui("body").css("overflow", "");
+
+					modal.trigger("ui.modal.hide.after");
 				}
 			}
 			return this;

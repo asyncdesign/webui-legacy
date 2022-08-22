@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com" alt="npm">
   </a>
   <a href="https://github.com/webpack/webpack">
-    <img src="https://img.shields.io/badge/Webpack-4.46.0-blue.svg" alt="npm">
+    <img src="https://img.shields.io/badge/Webpack-5.71.0-blue.svg" alt="npm">
   </a>
   <a href="https://github.com/asyncdesign/webui/network/dependencies">
     <img src="https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg" alt="npm">

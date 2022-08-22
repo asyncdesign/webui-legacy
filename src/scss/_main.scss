@@ -1244,9 +1244,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_default_hover;
 	}
-	&:active {
-		background-color: $theme_default_active;
-	}
 }
 .range-default::-moz-range-track {
 	background: $theme_default_active;
@@ -1255,9 +1252,6 @@ svg:not(:root) {
 	background: $theme_default;
 	&:hover {
 		background-color: $theme_default_hover;
-	}
-	&:active {
-		background-color: $theme_default_active;
 	}
 }
 .range-default::-ms-fill-lower,
@@ -1269,9 +1263,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_default_hover;
 	}
-	&:active {
-		background-color: $theme_default_active;
-	}
 }
 .range-light::-webkit-slider-runnable-track {
 	background: $theme_light;
@@ -1281,9 +1272,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_light_hover;
 	}
-	&:active {
-		background-color: $theme_light_active;
-	}
 }
 .range-light::-moz-range-track {
 	background: $theme_light;
@@ -1292,9 +1280,6 @@ svg:not(:root) {
 	background: $theme_light;
 	&:hover {
 		background-color: $theme_light_hover;
-	}
-	&:active {
-		background-color: $theme_light_active;
 	}
 }
 .range-light::-ms-fill-lower,
@@ -1306,9 +1291,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_light_hover;
 	}
-	&:active {
-		background-color: $theme_light_active;
-	}
 }
 .range-dark::-webkit-slider-runnable-track {
 	background: $theme_dark_active;
@@ -1318,9 +1300,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_dark_hover;
 	}
-	&:active {
-		background-color: $theme_dark_active;
-	}
 }
 .range-dark::-moz-range-track {
 	background: $theme_dark_active;
@@ -1329,9 +1308,6 @@ svg:not(:root) {
 	background: $theme_dark;
 	&:hover {
 		background-color: $theme_dark_hover;
-	}
-	&:active {
-		background-color: $theme_dark_active;
 	}
 }
 .range-dark::-ms-fill-lower,
@@ -1343,9 +1319,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_dark_hover;
 	}
-	&:active {
-		background-color: $theme_dark_active;
-	}
 }
 .range-accent-1::-webkit-slider-runnable-track {
 	background: $theme_accent_1_light;
@@ -1355,9 +1328,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_1_hover;
 	}
-	&:active {
-		background-color: $theme_accent_1_active;
-	}
 }
 .range-accent-1::-moz-range-track {
 	background: $theme_accent_1_light;
@@ -1366,9 +1336,6 @@ svg:not(:root) {
 	background: $theme_accent_1;
 	&:hover {
 		background-color: $theme_accent_1_hover;
-	}
-	&:active {
-		background-color: $theme_accent_1_active;
 	}
 }
 .range-accent-1::-ms-fill-lower,
@@ -1380,9 +1347,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_1_hover;
 	}
-	&:active {
-		background-color: $theme_accent_1_active;
-	}
 }
 .range-accent-2::-webkit-slider-runnable-track {
 	background: $theme_accent_2_light;
@@ -1392,9 +1356,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_2_hover;
 	}
-	&:active {
-		background-color: $theme_accent_2_active;
-	}
 }
 .range-accent-2::-moz-range-track {
 	background: $theme_accent_2_light;
@@ -1403,9 +1364,6 @@ svg:not(:root) {
 	background: $theme_accent_2;
 	&:hover {
 		background-color: $theme_accent_2_hover;
-	}
-	&:active {
-		background-color: $theme_accent_2_active;
 	}
 }
 .range-accent-2::-ms-fill-lower,
@@ -1417,9 +1375,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_2_hover;
 	}
-	&:active {
-		background-color: $theme_accent_2_active;
-	}
 }
 .range-accent-3::-webkit-slider-runnable-track {
 	background: $theme_accent_3_light;
@@ -1429,9 +1384,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_3_hover;
 	}
-	&:active {
-		background-color: $theme_accent_3_active;
-	}
 }
 .range-accent-3::-moz-range-track {
 	background: $theme_accent_3_light;
@@ -1440,9 +1392,6 @@ svg:not(:root) {
 	background: $theme_accent_3;
 	&:hover {
 		background-color: $theme_accent_3_hover;
-	}
-	&:active {
-		background-color: $theme_accent_3_active;
 	}
 }
 .range-accent-3::-ms-fill-lower,
@@ -1454,9 +1403,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_3_hover;
 	}
-	&:active {
-		background-color: $theme_accent_3_active;
-	}
 }
 .range-accent-4::-webkit-slider-runnable-track {
 	background: $theme_accent_4_light;
@@ -1466,9 +1412,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_4_hover;
 	}
-	&:active {
-		background-color: $theme_accent_4_active;
-	}
 }
 .range-accent-4::-moz-range-track {
 	background: $theme_accent_4_light;
@@ -1477,9 +1420,6 @@ svg:not(:root) {
 	background: $theme_accent_4;
 	&:hover {
 		background-color: $theme_accent_4_hover;
-	}
-	&:active {
-		background-color: $theme_accent_4_active;
 	}
 }
 .range-accent-4::-ms-fill-lower,
@@ -1491,9 +1431,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_4_hover;
 	}
-	&:active {
-		background-color: $theme_accent_4_active;
-	}
 }
 .range-accent-5::-webkit-slider-runnable-track {
 	background: $theme_accent_5_light;
@@ -1503,9 +1440,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_5_hover;
 	}
-	&:active {
-		background-color: $theme_accent_5_active;
-	}
 }
 .range-accent-5::-moz-range-track {
 	background: $theme_accent_5_light;
@@ -1514,9 +1448,6 @@ svg:not(:root) {
 	background: $theme_accent_5;
 	&:hover {
 		background-color: $theme_accent_5_hover;
-	}
-	&:active {
-		background-color: $theme_accent_5_active;
 	}
 }
 .range-accent-5::-ms-fill-lower,
@@ -1528,9 +1459,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_accent_5_hover;
 	}
-	&:active {
-		background-color: $theme_accent_5_active;
-	}
 }
 .range-success::-webkit-slider-runnable-track {
 	background: $theme_success_light;
@@ -1540,9 +1468,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_success_hover;
 	}
-	&:active {
-		background-color: $theme_success_active;
-	}
 }
 .range-success::-moz-range-track {
 	background: $theme_success_light;
@@ -1551,9 +1476,6 @@ svg:not(:root) {
 	background: $theme_success;
 	&:hover {
 		background-color: $theme_success_hover;
-	}
-	&:active {
-		background-color: $theme_success_active;
 	}
 }
 .range-success::-ms-fill-lower,
@@ -1565,9 +1487,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_success_hover;
 	}
-	&:active {
-		background-color: $theme_success_active;
-	}
 }
 .range-info::-webkit-slider-runnable-track {
 	background: $theme_info_light;
@@ -1577,9 +1496,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_info_hover;
 	}
-	&:active {
-		background-color: $theme_info_active;
-	}
 }
 .range-info::-moz-range-track {
 	background: $theme_info_light;
@@ -1588,9 +1504,6 @@ svg:not(:root) {
 	background: $theme_info;
 	&:hover {
 		background-color: $theme_info_hover;
-	}
-	&:active {
-		background-color: $theme_info_active;
 	}
 }
 .range-info::-ms-fill-lower,
@@ -1602,9 +1515,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_info_hover;
 	}
-	&:active {
-		background-color: $theme_info_active;
-	}
 }
 .range-warning::-webkit-slider-runnable-track {
 	background: $theme_warning_light;
@@ -1614,9 +1524,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_warning_hover;
 	}
-	&:active {
-		background-color: $theme_warning_active;
-	}
 }
 .range-warning::-moz-range-track {	
 	background: $theme_warning_light;
@@ -1625,9 +1532,6 @@ svg:not(:root) {
 	background: $theme_warning;
 	&:hover {
 		background-color: $theme_warning_hover;
-	}
-	&:active {
-		background-color: $theme_warning_active;
 	}
 }
 .range-warning::-ms-fill-lower,
@@ -1639,9 +1543,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_warning_hover;
 	}
-	&:active {
-		background-color: $theme_warning_active;
-	}
 }
 .range-danger::-webkit-slider-runnable-track {
 	background: $theme_danger_light;
@@ -1650,9 +1551,6 @@ svg:not(:root) {
 	background: $theme_danger;
 	&:hover {
 		background-color: $theme_danger_hover;
-	}
-	&:active {
-		background-color: $theme_danger_active;
 	}
 }
 .range-danger::-moz-range-track {
@@ -1663,9 +1561,6 @@ svg:not(:root) {
 	&:hover {
 		background-color: $theme_danger_hover;
 	}
-	&:active {
-		background-color: $theme_danger_active;
-	}
 }
 .range-danger::-ms-fill-lower,
 .range-danger::-ms-fill-upper {
@@ -1675,9 +1570,6 @@ svg:not(:root) {
 	background: $theme_danger;
 	&:hover {
 		background-color: $theme_danger_hover;
-	}
-	&:active {
-		background-color: $theme_danger_active;
 	}
 }
 .range-disabled::-webkit-slider-runnable-track {

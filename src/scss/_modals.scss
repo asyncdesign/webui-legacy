@@ -80,10 +80,6 @@
 	overflow-y: scroll;
 	height: 100%;
 }
-.modal-animate {
-	animation: animate-fadein 0.5s ease-in-out;
-}
-
 @media all and (min-width: $settings_modal_bp_3_over) and (max-width: $settings_modal_bp_4_under) {
 	.modal-sm {
 		left: 65%;
@@ -114,6 +110,7 @@
 		width: 80%;
 		margin-left: -10%;
 		&.modal-auto-stretch {
+			top: 5%;
 			height: 90vh;
 		}
 	}
