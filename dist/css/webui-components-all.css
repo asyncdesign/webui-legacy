@@ -4,7 +4,7 @@
 @charset "UTF-8";
 /*!
 * Name: webui-components-all - css
-* Version: 10.2.0
+* Version: 10.2.1
 * MIT License
 */
 .flow-col-1 {
@@ -11511,19 +11511,19 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
 }
 
 .border-sm {
-  border-width: 0.078rem;
-}
-
-.border-md {
   border-width: 0.125rem;
 }
 
-.border-lg {
+.border-md {
   border-width: 0.188rem;
 }
 
-.border-xl {
+.border-lg {
   border-width: 0.25rem;
+}
+
+.border-xl {
+  border-width: 0.313rem;
 }
 
 .border-xs, .border-sm, .border-md, .border-lg, .border-xl {

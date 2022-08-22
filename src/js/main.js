@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 10.2.0
+* Version: 10.2.1
 * MIT License
 */
 
@@ -9,9 +9,6 @@
 (function (win) {
 
 	var
-		_ui = win.ui,
-		_webui = win.webui,
-
 		root = document,
 
 		isObject = function (el) {
@@ -28,12 +25,6 @@
 		},
 		isElement = function (el) {
 			return el instanceof Element;
-		},
-		isDiv = function (el) {
-			return el && el.nodeName === "DIV";
-		},
-		isSpan = function (el) {
-			return el && el.nodeName === "SPAN";
 		},
 		isTextarea = function (el) {
 			return el && el.nodeName === "TEXTAREA";
@@ -2317,7 +2308,7 @@
 		}
 	};
 
-	webui.version = "v10.2.0";
+	webui.version = "v10.2.1";
 
 
 	/* EVENT HANDLERS */
