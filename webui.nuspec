@@ -8,10 +8,10 @@
     <owners>AsyncDesign</owners>
     <license type="file">LICENSE.txt</license>
     <description>A mobile-first CSS framework that supports responsive mobile first and fixed desktop layouts.</description>
-    <releaseNotes>https://github.com/asyncdesign/webui/releases</releaseNotes>
+    <releaseNotes>https://github.com/asyncdesign/webui-legacy/releases</releaseNotes>
     <summary></summary>
     <language>en-us</language>
-    <projectUrl>https://asyncdesign.github.io/webui/</projectUrl>
+    <projectUrl>https://asyncdesign.github.io/webui-legacy/</projectUrl>
     <icon>webui_blue_128x128.png</icon>
     <copyright>Copyright AsyncDesign 2010 - 2020</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -23,6 +23,6 @@
     <file src="dist\css\webui*.css" target="content\Content" />
     <file src="dist\js\webui*.js" target="content\Scripts" />
     <file src="LICENSE.txt" target="" />
-    <file src="..\webui\images\webui_blue_128x128.png" target="" />
+    <file src="..\webui-legacy\images\webui_blue_128x128.png" target="" />
   </files>
 </package>

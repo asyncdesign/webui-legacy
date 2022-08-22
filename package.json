@@ -25,10 +25,10 @@
   "main": "src/js/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/asyncdesign/webui.git"
+    "url": "https://github.com/asyncdesign/webui-legacy.git"
   },
   "bugs": {
-    "url": "https://github.com/asyncdesign/webui/issues"
+    "url": "https://github.com/asyncdesign/webui-legacy/issues"
   },
   "devDependencies": {
     "compression-webpack-plugin": "^9.2.0",
