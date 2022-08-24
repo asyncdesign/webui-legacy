@@ -1,7 +1,7 @@
 {
   "name": "asyncdesign-webui",
   "description": "A mobile-first CSS framework that supports responsive mobile first and fixed desktop layouts.",
-  "version": "10.2.1",
+  "version": "10.2.2",
   "author": "Levi Keogh",
   "license": "MIT",
   "keywords": [
@@ -45,19 +45,6 @@
   },
   "files": [
     "dist",
-    "images",
-    "src",
-    "vendor",
-    "DEMO-Accordions-Menus-Tabs.html",
-    "DEMO-Controls.html",
-    "DEMO-Designs.html",
-    "DEMO-Forms-Tooltips-Modals-Alerts.html",
-    "DEMO-Grids-Layouts.html",
-    "DEMO-Positioning.html",
-    "DEMO-Shapes.html",
-    "DEMO-Transitions-Effects.html",
-    "DEMO-Typography-Colour-Buttons.html",
-    "DEMO-Validation.html",
-    "site.css"
+    "src"
   ]
 }
